@@ -1,0 +1,53 @@
+/* Topic Fonts : font-family: "Montserrat Alternates"; */
+
+
+/* Sub-Topic Fonts :  font-family: "Nova Mono"; */
+
+
+/* Text :  font-family: "Poppins";*/
+
+* {
+    font-family: "Poppins", sans-serif;
+    color: #2e282a;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+a.nav {
+    color: #2e282a;
+    text-decoration: none;
+    background-color: #FFC677;
+    padding: 16px 20px;
+    width: 100%;
+    text-align: center;
+    size: 32px;
+    font-weight: 400;
+}
+
+nav a:hover {
+    color: #2e282ac9;
+    background-color: #ffc677d0;
+}
+
+nav a :active {
+    color: #2e282a;
+    background-color: #FFC677;
+}
+
+h1 {
+    size: 60px;
+    font-weight: 100;
+    padding: 24px;
+    margin: 0px;
+    background-color: #FF9020;
+    font-weight: 600;
+    font-family: "Montserrat Alternates", sans-serif;
+}
