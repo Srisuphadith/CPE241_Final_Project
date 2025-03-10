@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Admin | Coupon management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="topic">
+        <h1>Coupon management</h1>
+        <div class="user">
+            <p class="name">Hello Admin</p>
+            <a class="topic" href="/PS07/admin.html">Logout</a>
+        </div>
+    </div>
+    <nav>
+        <a class="nav" href="/PS07/manage_users.html">Manage User</a>
+        <a class="nav" href="/PS07/admin_coupon.html">Coupon management</a>
+        <a class="nav" href="/PS07/payment_address.html">Payment</a>
+        <a class="nav" href="/PS07/reports.html">Reports</a>
+    </nav>
+    <table border="1" style="margin-left: auto;margin-right: auto;">
+        <thead>
+            <tr>
+                <th width="200px">coupon_ID</th>
+                <th width="200px">coupon_Code</th>
+                <th width="200px">discount</th>
+                <th width="200px">remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0</td>
+                <td>9ARM</td>
+                <td>100 baht</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>SPIN9</td>
+                <td>200 baht</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>JOOKCHANGMOI</td>
+                <td>50 baht</td>
+                <td>1000</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="width: 850px; margin-left: auto;margin-right: auto;">
+        <br>
+        <table border="0 " style="margin-right: auto; ">
+            <tr>
+                <td width="150px">DELETE COUPON</td>
+                <td><input type="text" placeholder="coupon_ID "></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+        <br>
+        <table border="0 " style="margin-right: auto; ">
+            <tr>
+                <td width="150px ">ADD COUPON</td>
+                <td><input type="text" placeholder="coupon_Code"></td>
+                <td><input type="text" placeholder="discount"></td>
+                <td><input type="text" placeholder="remaining"></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+        <br>
+        <table border="0 " style="margin-right: auto; ">
+            <tr>
+                <td width="150px ">EDIT COUPON</td>
+                <td><input type="text" placeholder="coupon_Code"></td>
+                <td><input type="text" placeholder="discount"></td>
+                <td><input type="text" placeholder="remaining"></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

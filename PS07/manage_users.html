@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,
 initial-scale=1.0">
-    <title>Manage Users</title>
+    <title>Admin | Manage Users</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,93 @@ initial-scale=1.0">
 </head>
 
 <body>
-    <h1>Manage Users</h1>
+    <div class="topic">
+        <h1>Manage User</h1>
+        <div class="user">
+            <p class="name">Hello Admin</p>
+            <a class="topic" href="/PS07/admin.html">Logout</a>
+        </div>
+    </div>
     <nav>
-        <a class="nav" href="/PS07/manage_users.html">Manage Users</a>
-        <a class="nav" href="/PS07/manage_courses.html">Manage Courses</a>
-        <a class="nav" href="/PS07/reports.html">View Reports</a>
-        <a class="nav" href="/PS07/login.html">Logout</a>
+        <a class="nav" href="/PS07/manage_users.html">Manage User</a>
+        <a class="nav" href="/PS07/admin_coupon.html">Coupon management</a>
+        <a class="nav" href="/PS07/payment_address.html">Payment</a>
+        <a class="nav" href="/PS07/reports.html">Reports</a>
     </nav>
-    <p>Here you can add, edit, or delete users.</p>
-</body>
+    <div class="form">
+        <h2 class="formTopic">Manage Users</h2>
+        <form>
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter Username"><br><br>
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Example@gmail.com"><br><br>
+            <label>Role</label>
+            <select>
+                <option>User</option>
+                <option>Admin</option>
+            </select>
+    </div>
+    <div class="submit">
+        <button class="submit" type="submit">Save User</button> </div>
+    </form>
 
-</html>
+    <div class="form">
+        <h2 class="formTopic">Manage Admins</h2>
+        <form>
+            <label>Admin Name</label>
+            <input type="text" name="adminname" placeholder="Enter Admin Name"><br><br>
+            <label>Email</label>
+            <input type="email" name="adminemail" placeholder="Example@gmail.com">
+    </div>
+    <div class="submit">
+        <button class="submit" type="submit">Save Admin</button></div>
+    </form>
+    <div class="all">
+        <h2 style="text-align :center;">User List</h2>
+        <table border="1" style="margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>JohnDoe</td>
+                    <td>john@example.com</td>
+                    <td>User</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 style="text-align :center;">Admin List</h2>
+        <table border="1" style="margin-left: auto;margin-right: auto;">
+            <thead>
+                <tr style="align-items: center;">
+                    <th>Admin Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>Admin1</td>
+                    <td>admin@example.com</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        </head>
+    </div>
+</body>

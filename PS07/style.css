@@ -6,6 +6,15 @@
 
 /* Text :  font-family: "Poppins";*/
 
+.topic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    margin: 0px;
+    background-color: #FF9020;
+}
+
 * {
     font-family: "Poppins", sans-serif;
     color: #2e282a;
@@ -19,6 +28,28 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+div.user {
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+a.topic {
+    color: #2e282a;
+    padding: 16px 20px;
+}
+
+nav a.topic:hover {
+    color: #2e282ac9;
+}
+
+nav a.topic:active {
+    color: #2e282a;
 }
 
 a.nav {
@@ -32,22 +63,88 @@ a.nav {
     font-weight: 400;
 }
 
-nav a:hover {
+nav a.nav:hover {
     color: #2e282ac9;
     background-color: #ffc677d0;
 }
 
-nav a :active {
+nav a.nav:active {
     color: #2e282a;
     background-color: #FFC677;
 }
 
 h1 {
     size: 60px;
-    font-weight: 100;
-    padding: 24px;
-    margin: 0px;
-    background-color: #FF9020;
     font-weight: 600;
     font-family: "Montserrat Alternates", sans-serif;
+}
+
+form {
+    margin: auto;
+    padding: 20px;
+    width: 350px;
+    /* border: #2E282A solid 1px; */
+    border-radius: 12px;
+}
+
+h2.formTopic {
+    text-align: center;
+    margin: 0px;
+    padding: 12px 20px;
+    background-color: #EEF0F2;
+    border-radius: 12px;
+}
+
+div.form {
+    margin: 0px;
+    border-radius: 12px;
+    margin: 12px 16px;
+    border: #2e282a solid 1px;
+}
+
+table {
+    border: 0px;
+    background-color: #2e282a;
+}
+
+th {
+    background-color: #EEF0F2;
+    border: 0px;
+}
+
+td {
+    background-color: #EEF0F2;
+    border: 0px;
+}
+
+td input {
+    border: none;
+}
+
+div.submit {
+    text-align: center;
+    margin: 12px;
+    margin-bottom: 20px;
+}
+
+button.submit {
+    color: #2e282a;
+    background-color: #EEF0F2;
+    padding: 16px 20px;
+    border-radius: 16px;
+    border: 1px #2e282a solid;
+}
+
+button.submit:hover {
+    color: #2e282ac9;
+    background-color: #EEF0F2d0;
+}
+
+button.submit:active {
+    color: #2e282a;
+    background-color: #EEF0F2;
+}
+
+div.all {
+    margin-bottom: 20px;
 }
