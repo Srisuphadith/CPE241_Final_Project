@@ -5,11 +5,18 @@ function App() {
 
     useEffect(() => {
         fetch('/api')
-            .then(res => res.json())
-            .then(data => setMessage(data.message));
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => setMessage(data.message))
+            .catch(error => {
+                console.error('Fetch error: ', error);
+            });
     }, []);
 
     return <h1 > { message || "Loading..." } < /h1>;
 }
-
 export default App;

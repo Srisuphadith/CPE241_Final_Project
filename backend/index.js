@@ -7,12 +7,11 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: 'db', // Docker service name for MySQL
+    host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || 'root_password',
-    database: process.env.DB_NAME || 'shm_db'
+    password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'CPE241_SHOP'
 });
-
 
 db.connect(err => {
     if (err) throw err;
