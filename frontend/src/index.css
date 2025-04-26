@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.poppins-font {
+    font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.montserrat-font {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.bg-soft-white {
+    background-color: #EEF0F2;
+}
+
+.bg-dark-orange {
+    background-color: #FF9020;
+}
+
+.bg-soft-black {
+    background-color: #2E282A;
+}
+
+.bg-soft-orange {
+    background-color: #FFA600;
+}
+
+.bg-softest-orange {
+    background-color: #FFC677;
+}
+
+.text-soft-white {
+    color: #EEF0F2;
+}
+
+.text-dark-orange {
+    color: #FF9020;
+}
+
+.text-soft-black {
+    color: #2E282A;
+}
+
+.text-soft-orange {
+    color: #FFA600;
+}
+
+.text-softest-orange {
+    color: #FFC677;
+}
+
+.text-red {
+    color: red;
+}
+
+.text-green {
+    color: green;
 }
