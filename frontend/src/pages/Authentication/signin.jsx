@@ -10,12 +10,12 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post('/api/SignIn', { username, password });
+      const response = await axios.post('/api/login', { username, password }, { withCredentials: true });
       if (response.data.success) {
         setMessage('Sign In successful!');
-        navigate('/market'); // redirect to market page
+        navigate('/market');
       } else {
         setMessage('Username or password incorrect');
       }
@@ -23,7 +23,7 @@ function SignIn() {
       console.error('Sign In error:', error);
       setMessage('An error occurred during Sign In');
     }
-  };
+  };  
 
   return (
     <div className="pt-12 m-12 flex flex-col items-center">

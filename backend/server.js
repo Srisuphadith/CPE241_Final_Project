@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2/promise');
@@ -24,6 +25,15 @@ const db = mysql.createPool({
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'CPE241_SHOP'
 });
+
+app.get('/', (req, res) => {
+    res.send('Backend Server is running!');
+});
+
+app.listen(5000, () => {
+    console.log('Server is running on http://localhost:5000');
+});
+
 
 app.post('/api/login', async(req, res) => {
     const { username, password } = req.body;
