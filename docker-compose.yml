@@ -1,4 +1,4 @@
-version: "3.8"
+# version: "3.8"
 
 services:
   db:
@@ -7,12 +7,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
     volumes:
-      - ./database:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d
     networks:
       - app-network
 
@@ -30,6 +28,8 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
     restart: always
+    volumes:
+      - ./backend:/app
     networks:
       - app-network
 
@@ -45,6 +45,8 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
     restart: always
+    volumes:
+      - ./frontend:/app
     networks:
       - app-network
 

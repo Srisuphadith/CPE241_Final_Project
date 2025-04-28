@@ -1,40 +1,36 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const mysql = require('mysql2/promise');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
-const secret = process.env.SECRET_KEY;
+const db = require('./config/db.js'); // Import the db pool
 
 const app = express();
+
+// CORS Configuration
 app.use(cors({
     origin: 'http://localhost:3000',
     credentials: true,
 }));
+
+// Body parsing middleware
 app.use(express.json());
 
+// Session middleware with secret
+const secret = process.env.SECRET_KEY;
+console.log(process.env.SECRET_KEY);
 app.use(session({
     secret: secret,
     resave: false,
     saveUninitialized: false,
 }));
 
-const db = mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'CPE241_SHOP'
-});
-
+// Basic endpoint to check server
 app.get('/', (req, res) => {
     res.send('Backend Server is running!');
 });
 
-app.listen(5000, () => {
-    console.log('Server is running on http://localhost:5000');
-});
-
-
+// Login route
 app.post('/api/login', async(req, res) => {
     const { username, password } = req.body;
 
@@ -56,6 +52,7 @@ app.post('/api/login', async(req, res) => {
     }
 });
 
+// Market route (protected by session)
 app.get('/api/market', (req, res) => {
     if (req.session.userID) {
         res.json({ message: `Welcome ${req.session.firstName}` });
@@ -64,6 +61,7 @@ app.get('/api/market', (req, res) => {
     }
 });
 
+// Start server on port 5000
 app.listen(5000, () => {
     console.log('Server is running on http://localhost:5000');
 });

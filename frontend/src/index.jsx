@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SignIn from './authentication/signin';
+import SignIn from './pages/Authentication/SignIn';
 import { BrowserRouter } from 'react-router-dom';
 
 
