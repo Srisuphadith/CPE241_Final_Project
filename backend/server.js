@@ -60,6 +60,10 @@ app.get('/api/market', (req, res) => {
         res.status(401).json({ message: 'Unauthorized' });
     }
 });
+app.get('/test01',(req,res)=>{
+    res.type("text/html");
+    res.end("<h1>Hello World!</h1>");
+});
 
 // Start server on port 5000
 app.listen(5000, () => {
