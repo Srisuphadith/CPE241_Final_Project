@@ -1,3 +1,11 @@
+INSERT INTO tbl_users (user_ID, firstName, midName, lastName, userName, password_hash, `role`) VALUES
+(1, 'John', 'A.', 'Doe', 'admin', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin'),
+(2, 'Jane', 'B.', 'Smith', 'janesmith', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
+(3, 'Mike', 'C.', 'Johnson', 'mikej', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
+(4, 'Alice', 'D.', 'Williams', 'alicew', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
+(5, 'Robert', 'E.', 'Brown', 'robbie', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin');
+
+
 INSERT INTO tbl_user_phones (user_ID, phone_number, is_primary) VALUES
 (1, '0812345678', 1),
 (1, '0898765432', 0),
@@ -74,3 +82,14 @@ INSERT INTO tbl_reviews (product_ID, user_ID, starRate, txt) VALUES
 (3, 3, 5, 'Loved the story. Highly recommended.'),
 (4, 5, 3, 'The case is okay, but packaging was bad.'),
 (5, 4, 5, 'Very vibrant colors, good for artists.');
+
+INSERT INTO tbl_review_images (review_ID, image_number, imgPath) VALUES
+(1, 1, '/images/reviews/sound_quality_1.jpg'),
+(1, 2, '/images/reviews/sound_quality_2.jpg'),
+(2, 1, '/images/reviews/dress_fabric.jpg'),
+(3, 1, '/images/reviews/book_story.jpg'),
+(4, 1, '/images/reviews/case_okay.jpg'),
+(4, 2, '/images/reviews/packaging_bad.jpg'),
+(5, 1, '/images/reviews/art_colors_1.jpg'),
+(5, 2, '/images/reviews/art_colors_2.jpg'),
+(5, 3, '/images/reviews/art_colors_3.jpg');

@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 # Start the Express server
-CMD ["node", "index.js"]
+CMD ["npx", "nodemon", "server.js"]

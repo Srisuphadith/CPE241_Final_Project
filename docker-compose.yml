@@ -1,4 +1,4 @@
-version: '3.8'
+# version: "3.8"
 
 services:
   db:
@@ -15,7 +15,9 @@ services:
       - app-network
 
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     depends_on:
@@ -25,17 +27,26 @@ services:
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: ${DB_NAME}
+    restart: always
+    volumes:
+      - ./backend:/app
     networks:
       - app-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     depends_on:
       - backend
     environment:
       - CHOKIDAR_USEPOLLING=true
+      - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
+    restart: always
+    volumes:
+      - ./frontend:/app
     networks:
       - app-network
 
