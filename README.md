@@ -79,4 +79,4 @@ This folder contains all the client-side logic, React components, and styles for
 ### Final Thoughts:
 - **Backend (`/backend/`)**: Responsible for handling the business logic, database interactions, authentication, and serving APIs.
 - **Frontend (`/frontend/`)**: Handles the user interface, interactions, and communication with the backend through API calls.
-- **Database (`/db/`)**: Contains SQL scripts to initialize and seed the database.
+- **Database (`/db/`)**: Contains SQL scripts to initialize and seed the database..
