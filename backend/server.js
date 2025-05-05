@@ -1,71 +1,51 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const bcrypt = require('bcrypt');
-const session = require('express-session');
-const db = require('./config/db.js'); // Import the db pool
+const express = require('express')
+const app = express()
+const morgan = require('morgan')
+const bodyParser = require('body-parser') //เพื่อให้อ่านไฟล์ json ที่ส่งมาได้
+    //const product = require('./Routers/product') //เพื่อใช้route product (route traditional2)
+    //const auth = require('./Routers/auth') //(route traditional2)
+const { readdirSync } = require('fs') //เพื่ออ่านรายชื่อไฟล์ในโฟลเดอร์Routerแบบ synchronous
+const cors = require('cors') //เกี่ยวหน้าบ้าน
 
-const app = express();
+// ======================================== Ref Part ========================================
+// //middenware ใครจะทำอะไรทำฉันก่อน
+// app.use(morgan('dev')) //morgan dev เอาไว้ดูว่าใครทำอะไรกับ server เรา แบบ get รั่วๆ 
+// app.use(bodyParser.json()) //เพื่อให้อ่านไฟล์ json ที่ส่งมาได้
 
-// CORS Configuration
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-}));
+// //Route คือเส้นทาง (URL) ที่กำหนดไว้ในเซิร์ฟเวอร์ ซึ่งทำหน้าที่รับคำขอ (Request) 
+// //จากฝั่งผู้ใช้ แล้วจัดการกับข้อมูล (เช่น CRUD) และส่งคำตอบกลับ (Response) ไปยังผู้ใช้
+// app.get('/', (req, res) => {
+//     //code
+//     res.send('hello server get')
+// })
 
-// Body parsing middleware
-app.use(express.json());
+// app.post('/post', (req, res) => {
+//     //วิธีรับFข้อมูลเเล้วแสดง
+//     //console.log(req.body.name) //ท่างงไม่ค่อยสื่อ
+//     const { name, price } = req.body
+//     console.log(name)
 
-// Session middleware with secret
-const secret = process.env.SECRET_KEY;
-console.log(process.env.SECRET_KEY);
-app.use(session({
-    secret: secret,
-    resave: false,
-    saveUninitialized: false,
-}));
+//     res.send(req.body)
+// })
 
-// Basic endpoint to check server
+// //start server -> node server (in cmd) -> use nodemon to auto restart server -> npm start (in cmd)
+// app.listen(4000, () => console.log('server is runing on port 4000'))
+// ==========================================================================================
+
+
+//middenware ใครจะทำอะไรทำฉันก่อน
+app.use(morgan('dev')) //morgan dev เอาไว้ดูว่าใครทำอะไรกับ server เรา แบบ get รั่วๆ 
+app.use(bodyParser.json()) //เพื่อให้อ่านไฟล์ json ที่ส่งมาได้
+app.use(cors())
+
+//For logging
 app.get('/', (req, res) => {
-    res.send('Backend Server is running!');
+    res.send('API is running');
 });
 
-// Login route
-app.post('/api/login', async(req, res) => {
-    const { username, password } = req.body;
+//route
+readdirSync('./Routers')
+    .map((item) => app.use('/api', require('./Routers/' + item))) //auto import route
 
-    try {
-        const [rows] = await db.execute('SELECT user_ID, firstName, role, password_hash FROM tbl_users WHERE userName = ?', [username]);
-        const user = rows[0];
-
-        if (user && await bcrypt.compare(password, user.password_hash)) {
-            req.session.userID = user.user_ID;
-            req.session.role = user.role;
-            req.session.firstName = user.firstName;
-            res.json({ success: true, message: 'Login successful!' });
-        } else {
-            res.json({ success: false, message: 'Invalid username or password' });
-        }
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Server error' });
-    }
-});
-
-// Market route (protected by session)
-app.get('/api/market', (req, res) => {
-    if (req.session.userID) {
-        res.json({ message: `Welcome ${req.session.firstName}` });
-    } else {
-        res.status(401).json({ message: 'Unauthorized' });
-    }
-});
-app.get('/test01',(req,res)=>{
-    res.type("text/html");
-    res.end("<h1>Hello World!</h1>");
-});
-
-// Start server on port 5000
-app.listen(5000, () => {
-    console.log('Server is running on http://localhost:5000');
-});
+//start server -> node server (in cmd) -> use nodemon to auto restart server -> npm start (in cmd)
+app.listen(4000, () => console.log('server is runing on port 4000'))
