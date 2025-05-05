@@ -1,15 +1,13 @@
 const db = require('../config/db')
 exports.total_sales = async(req, res) => {
     try {
-        db.query('SELECT SUM(grandTotal) as total_spent FROM tbl_transactions WHERE paid = 1;', (err, results) => {
-            if (err) return res.status(500).send('ผิดพลาดในการดึงข้อมูล');
-            res.json(results);
-        });
+        const [results] = await db.query('SELECT SUM(grandTotal) AS total_spent FROM tbl_transactions WHERE paid = 1;');
+        res.json(results);
     } catch (err) {
-        console.log(err)
+        console.log(err);
+        return res.status(500).send('ผิดพลาดในการดึงข้อมูล');
     }
-}
-
+};
 exports.total_user = async(req, res) => {
     try {
         db.query("SELECT COUNT(role) as total_user FROM tbl_users WHERE role = 'user';", (err, results) => {
