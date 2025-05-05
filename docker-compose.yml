@@ -1,4 +1,4 @@
-# version: "3.8"
+version: '3.8'
 
 services:
   db:
@@ -10,43 +10,23 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./db:/docker-entrypoint-initdb.d
+      - ./db:/docker-entrypoint-initdb.d  # This will automatically execute any SQL scripts placed in this folder
     networks:
       - app-network
 
   backend:
-    build: 
-      context: ./backend
-      dockerfile: Dockerfile
+    build: ./backend
     ports:
       - "4000:4000"
     depends_on:
       - db
-    environment:
-      DB_HOST: db
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_NAME: ${DB_NAME}
-    restart: always
-    volumes:
-      - ./backend:/app
     networks:
       - app-network
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    build: ./frontend
     ports:
       - "3000:3000"
-    depends_on:
-      - backend
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-      - REACT_APP_BACKEND_URL=${REACT_APP_BACKEND_URL}
-    restart: always
-    volumes:
-      - ./frontend:/app
     networks:
       - app-network
 
