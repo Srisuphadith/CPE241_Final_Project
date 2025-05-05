@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SignIn from './pages/Authentication/SignIn';
+import SignIn from './pages/Authentication/signin';
 import { BrowserRouter } from 'react-router-dom';
-
+import Test from './pages/welcome'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <BrowserRouter>
-        <SignIn />
+   
+        <Test />
       </BrowserRouter>
     </React.StrictMode>
   );
