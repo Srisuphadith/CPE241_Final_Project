@@ -1,4 +1,4 @@
-const db = require('../db/db')
+const db = require('../config/db')
 exports.total_sales = async (req,res)=>{
     try{ 
         db.query('SELECT SUM(grandTotal) as total_spent FROM tbl_transactions WHERE paid = 1;', (err, results) => {

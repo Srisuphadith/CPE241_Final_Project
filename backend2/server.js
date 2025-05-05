@@ -20,8 +20,8 @@ app.use(cors())
 //console log
 //auth.js 0
 //product.js 1
-readdirSync('./Routers')
-    .map((item)=>app.use('/api',require('./Routers/'+item))) //auto import route
+readdirSync('./routers')
+    .map((item)=>app.use('/api',require('./routers/'+item))) //auto import route
 
 
 // app.get('/', (req, res) => {
