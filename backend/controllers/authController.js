@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const pool = require('../config/db');
 
 // ฟังก์ชันสำหรับลงทะเบียนผู้ใช้ใหม่
-exports.register = async (req, res) => {
+exports.register = async(req, res) => {
     try {
         const { firstName, midName, lastName, userName, password, role, phone_number, is_primary, address } = req.body;
 
@@ -33,23 +33,20 @@ exports.register = async (req, res) => {
             // บันทึกผู้ใช้ลงในตาราง tbl_users
             const [userResult] = await connection.query(
                 `INSERT INTO tbl_users (firstName, midName, lastName, userName, password_hash, role) 
-                 VALUES (?, ?, ?, ?, ?, ?)`,
-                [firstName, midName || null, lastName, userName, password_hash, userRole]
+                 VALUES (?, ?, ?, ?, ?, ?)`, [firstName, midName || null, lastName, userName, password_hash, userRole]
             );
             const user_ID = userResult.insertId;
 
             // บันทึกเบอร์โทรลงในตาราง tbl_user_phones
             await connection.query(
                 `INSERT INTO tbl_user_phones (user_ID, phone_number, is_primary) 
-                 VALUES (?, ?, ?)`,
-                [user_ID, phone_number, is_primary !== undefined ? is_primary : true]
+                 VALUES (?, ?, ?)`, [user_ID, phone_number, is_primary !== undefined ? is_primary : true]
             );
 
             // บันทึกที่อยู่ลงในตาราง tbl_address
             await connection.query(
                 `INSERT INTO tbl_address (user_ID, buildingNumber, sub_province, province, city, country, zip_code, txt) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-                [
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, [
                     user_ID,
                     address.buildingNumber,
                     address.sub_province || null,
@@ -64,10 +61,8 @@ exports.register = async (req, res) => {
             await connection.commit();
 
             // สร้าง JWT token
-            const token = jwt.sign(
-                { user_ID, userName, role: userRole },
-                process.env.JWT_SECRET,
-                { expiresIn: '1h' }
+            const token = jwt.sign({ user_ID, userName, role: userRole },
+                process.env.JWT_SECRET, { expiresIn: '1h' }
             );
 
             // ส่งการตอบกลับว่าสำเร็จ
@@ -89,7 +84,7 @@ exports.register = async (req, res) => {
 };
 
 // ฟังก์ชันสำหรับล็อกอิน
-exports.login = async (req, res) => {
+exports.login = async(req, res) => {
     try {
         const { userName, password } = req.body;
 
@@ -113,10 +108,8 @@ exports.login = async (req, res) => {
         }
 
         // สร้าง JWT token
-        const token = jwt.sign(
-            { user_ID: user.user_ID, userName: user.userName, role: user.role },
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' }
+        const token = jwt.sign({ user_ID: user.user_ID, userName: user.userName, role: user.role },
+            process.env.JWT_SECRET, { expiresIn: '1h' }
         );
 
         // ส่งการตอบกลับว่าสำเร็จ
