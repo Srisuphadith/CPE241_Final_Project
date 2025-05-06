@@ -1,6 +1,6 @@
 import React from "react";
 import logo from '../assets/img/logo_2.png';
-export default function AuthPage() {
+export default function welcome() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#2b2526]">
       <div className="flex flex-col items-center space-y-8">

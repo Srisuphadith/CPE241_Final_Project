@@ -4,13 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import SignIn from './pages/Authentication/signin';
 import { BrowserRouter } from 'react-router-dom';
-import Test from './pages/welcome'
+import Welcome from './pages/welcome'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <BrowserRouter>
-   
-        <Test />
+        <Welcome />
       </BrowserRouter>
     </React.StrictMode>
   );
