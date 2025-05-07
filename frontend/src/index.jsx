@@ -2,9 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import SignIn from './pages/Authentication/signin';
+
 import { BrowserRouter } from 'react-router-dom';
+//---------------import page--------------------
+import SignIn from './pages/Authentication/signin';
 import Welcome from './pages/welcome'
+import Register from './pages/Authentication/register'
+//---------------import page--------------------
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,8 +20,10 @@ const router = createBrowserRouter([
   },{
     path: "/login",
     element: <SignIn/>,
+  },{
+    path: "/register",
+    element: <Register/>,
   }
-// ส่วนของ path และ element เราสามารถเพิ่มมาอีกได้เรื่อย ๆ กรณีที่เรามีหลายเพจ
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
