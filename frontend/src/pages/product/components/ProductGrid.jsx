@@ -4,27 +4,27 @@ const products = [
   {
     name: 'พระสติ มวลสารถุงฟอยล์สีเขียว',
     price: 200,
-    image: '/green.png',
+    image: '/#',
   },
   {
     name: 'พระสติ มวลสาร Recycled PET',
     price: 200,
-    image: '/recycled.png',
+    image: '/#',
   },
   {
     name: 'A Piece of Islamic Art',
     price: 690,
-    image: '/islamic.png',
+    image: '/#',
   },
   {
     name: 'BABY GANESHA ปางปฐมพรหม',
     price: 1490,
-    image: '/ganesha.png',
+    image: '/#',
   },
   {
     name: 'พระสติ มวลสารฝาขวดน้ำ',
     price: 200,
-    image: '/yellow.png',
+    image: '/#',
   },
 ];
 

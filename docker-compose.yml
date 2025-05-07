@@ -18,15 +18,21 @@ services:
     build: ./backend
     ports:
       - "4000:4000"
+    volumes:
+      - ./backend:/app
     depends_on:
       - db
     networks:
       - app-network
 
   frontend:
-    build: ./frontend
+    build: 
+      context: ./frontend
+      dockerfile: dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - ./frontend:/app 
     networks:
       - app-network
 
