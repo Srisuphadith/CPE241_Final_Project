@@ -32,11 +32,11 @@ export default function welcome() {
           <p className="text-xs text-gray-600 mt-6">
             By creating an account, I accept Mongkol’s
             <br />
-            <a href="#" className="text-orange-500 hover:underline">
+            <a href="/#" className="text-orange-500 hover:underline">
               Terms of Service
             </a>{" "}
             and
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="/#" className="text-blue-500 hover:underline">
               {" "}Privacy Policy
             </a>
             .
