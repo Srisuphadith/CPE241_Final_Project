@@ -1,9 +1,9 @@
 INSERT INTO tbl_users (user_ID, firstName, midName, lastName, userName, password_hash, `role`) VALUES
-(1, 'John', 'A.', 'Doe', 'admin', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin'),
-(2, 'Jane', 'B.', 'Smith', 'janesmith', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
-(3, 'Mike', 'C.', 'Johnson', 'mikej', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
-(4, 'Alice', 'D.', 'Williams', 'alicew', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'user'),
-(5, 'Robert', 'E.', 'Brown', 'robbie', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'admin');
+(1, 'John', 'A.', 'Doe', 'admin', '$2a$10$qy9leoJloExThApTbN0ZdOANvMR1BIwUBB/X29UXRVEFFVMC5aes6', 'admin'),
+(2, 'Jane', 'B.', 'Smith', 'janesmith', '$2a$10$qy9leoJloExThApTbN0ZdOANvMR1BIwUBB/X29UXRVEFFVMC5aes6', 'user'),
+(3, 'Mike', 'C.', 'Johnson', 'mikej', '$2a$10$qy9leoJloExThApTbN0ZdOANvMR1BIwUBB/X29UXRVEFFVMC5aes6', 'user'),
+(4, 'Alice', 'D.', 'Williams', 'alicew', '$2a$10$qy9leoJloExThApTbN0ZdOANvMR1BIwUBB/X29UXRVEFFVMC5aes6', 'user'),
+(5, 'Robert', 'E.', 'Brown', 'robbie', '$2a$10$qy9leoJloExThApTbN0ZdOANvMR1BIwUBB/X29UXRVEFFVMC5aes6', 'admin');
 
 
 INSERT INTO tbl_user_phones (user_ID, phone_number, is_primary) VALUES

@@ -2,48 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-//import { BrowserRouter } from 'react-router-dom';
-//---------------import page--------------------
-import SignIn from './pages/Authentication/signin';
 import Welcome from './pages/welcome';
-import Register from './pages/Authentication/signup';
-import Product from './pages/product/product'
-import Product_detail from './pages/product/product_detail'
-//---------------import page--------------------
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import SignIn from './pages/Authentication/signin';
+import SignUp from './pages/Authentication/signup'
 
-//create router-------------
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Welcome/>,
-  },{
-    path: "/signin",
-    element: <SignIn/>,
-  },{
-    path: "/signup",
-    element: <Register/>,
-  },{
-    path:"/product",
-    element: <Product/>,
-  },{
-    path:"/product_detail",
-    element:<Product_detail/>,
-  }
-]);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+);
 
-//render
-ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

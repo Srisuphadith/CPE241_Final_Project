@@ -12,24 +12,31 @@ export default function SignIn() {
     e.preventDefault();
   
     try {
-      const response = await axios.post('/api/login', { username, password }, { withCredentials: true });
-      if (response.data.success) {
+      const response = await axios.post('/auth/login', {
+        userName: username,
+        password
+      }, { withCredentials: true });
+  
+      // Check if response status is OK
+      if (response.status === 200) {
         setMessage('Sign In successful!');
         navigate('/market');
-      } else {
-        setMessage('Username or password incorrect');
       }
     } catch (error) {
-      console.error('Sign In error:', error);
-      setMessage('An error occurred during Sign In');
+      // Check if error response is available and handle it
+      if (error.response && error.response.data && error.response.data.error) {
+        setMessage(error.response.data.error); // Use the error message from the backend
+      } else {
+        setMessage('An error occurred during Sign In');
+      }
     }
-  };  
+  };
 
   return (
     <div className="pt-12 m-12 flex flex-col items-center">
       {message && (
-        <div className="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 flex items-center p-4 border-t-4 rounded-lg shadow-lg max-w-md w-full bg-white">
-          <p className="text-sm font-medium">{message}</p>
+        <div className="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 flex items-center p-4 border-t-4 border-red-300 rounded-lg shadow-lg max-w-md w-full">
+          <p className="text-red poppins-font text-xs">{message}</p>
         </div>
       )}
 
@@ -63,7 +70,7 @@ export default function SignIn() {
           className="font-bold text-2xl bg-orange-600 px-14 py-1 rounded-2xl text-white"
         /><br />
         <p className="text-xs my-2">
-          Don't have an account yet? <a href="/" className="text-orange-600">Sign Up!</a>
+          Don't have an account yet? <a href="/signup" className="text-orange-600">Sign Up!</a>
         </p>
       </form>
     </div>
