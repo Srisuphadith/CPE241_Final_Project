@@ -9,6 +9,7 @@ import SignIn from './pages/Authentication/signin';
 import Welcome from './pages/welcome';
 import Register from './pages/Authentication/signup';
 import Product from './pages/product/product'
+import Product_detail from './pages/product/product_detail'
 //---------------import page--------------------
 import {
   createBrowserRouter,
@@ -29,6 +30,9 @@ const router = createBrowserRouter([
   },{
     path:"/product",
     element: <Product/>,
+  },{
+    path:"/product_detail",
+    element:<Product_detail/>,
   }
 ]);
 
