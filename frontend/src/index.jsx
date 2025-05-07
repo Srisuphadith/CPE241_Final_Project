@@ -5,12 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import SignIn from './pages/Authentication/signin';
 import { BrowserRouter } from 'react-router-dom';
 import Welcome from './pages/welcome'
-
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Welcome/>,
+  },{
+    path: "/login",
+    element: <SignIn/>,
+  }
+// ส่วนของ path และ element เราสามารถเพิ่มมาอีกได้เรื่อย ๆ กรณีที่เรามีหลายเพจ
+]);
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-      <BrowserRouter>
-        <Welcome />
-      </BrowserRouter>
+      <RouterProvider router={router} />
     </React.StrictMode>
   );
 

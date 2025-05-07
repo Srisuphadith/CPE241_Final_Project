@@ -25,9 +25,9 @@ export default function welcome() {
 
           <p className="text-gray-600 mb-4">or</p>
 
-          <button className="w-full bg-white text-black font-bold py-3 rounded-full border hover:bg-gray-200">
+          <a href="/login" className="ring-gray-500 ring-2 rounded-[30px] text-gray-800 hover:text-white px-[105px] py-[13px] hover:bg-gray-800">
             Login
-          </button>
+          </a>
 
           <p className="text-xs text-gray-600 mt-6">
             By creating an account, I accept Mongkol’s
