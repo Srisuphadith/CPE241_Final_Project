@@ -3,9 +3,9 @@ import React from 'react'
 export default function register() {
   return (
     <div>
-       
-        <h1>Hello world!!</h1>
-       
+       <div className='container bg-orange-500'>
+       <h1>Hello</h1>
+       </div>
     </div>
   );
 }

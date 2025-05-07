@@ -19,13 +19,13 @@ export default function welcome() {
             Welcome to MONGKOL!
           </h2>
 
-          <a href="/register" className="bg-orange-500 rounded-[30px] text-gray-800 hover:text-white px-[95px] py-[13px] hover:bg-orange-600">
+          <a href="/signup" className="bg-orange-500 rounded-[30px] text-gray-800 hover:text-white px-[95px] py-[13px] hover:bg-orange-600">
             Register
           </a> 
       
           <p className="text-gray-600 mb-4 mt-[20px] mb-[20px]">or</p>
 
-          <a href="/login" className="ring-gray-500 ring-2 rounded-[30px] text-gray-800 hover:text-white px-[105px] py-[13px] hover:bg-gray-800">
+          <a href="/signin" className="ring-gray-500 ring-2 rounded-[30px] text-gray-800 hover:text-white px-[105px] py-[13px] hover:bg-gray-800">
             Login
           </a>
 

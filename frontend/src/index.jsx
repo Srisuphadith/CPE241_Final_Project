@@ -7,7 +7,8 @@ import reportWebVitals from './reportWebVitals';
 //---------------import page--------------------
 import SignIn from './pages/Authentication/signin';
 import Welcome from './pages/welcome';
-import Register from './pages/Authentication/register';
+import Register from './pages/Authentication/signup';
+import Product from './pages/product/product'
 //---------------import page--------------------
 import {
   createBrowserRouter,
@@ -20,11 +21,14 @@ const router = createBrowserRouter([
     path: "/",
     element: <Welcome/>,
   },{
-    path: "/login",
+    path: "/signin",
     element: <SignIn/>,
   },{
-    path: "/register",
+    path: "/signup",
     element: <Register/>,
+  },{
+    path:"/product",
+    element: <Product/>,
   }
 ]);
 
