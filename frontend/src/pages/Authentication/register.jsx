@@ -1,9 +1,11 @@
 import React from 'react'
 
-function register() {
+export default function register() {
   return (
-    <div>register</div>
-  )
+    <div>
+       
+        <h1>Hello world!!</h1>
+       
+    </div>
+  );
 }
-
-export default register

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function SignIn() {
+export default function SignIn() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -63,11 +63,9 @@ function SignIn() {
           className="font-bold text-2xl bg-orange-600 px-14 py-1 rounded-2xl text-white"
         /><br />
         <p className="text-xs my-2">
-          Don't have an account yet? <a href="/signup" className="text-orange-600">Sign Up!</a>
+          Don't have an account yet? <a href="/" className="text-orange-600">Sign Up!</a>
         </p>
       </form>
     </div>
   );
 }
-
-export default SignIn;

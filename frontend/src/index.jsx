@@ -6,13 +6,15 @@ import reportWebVitals from './reportWebVitals';
 //import { BrowserRouter } from 'react-router-dom';
 //---------------import page--------------------
 import SignIn from './pages/Authentication/signin';
-import Welcome from './pages/welcome'
-import Register from './pages/Authentication/register'
+import Welcome from './pages/welcome';
+import Register from './pages/Authentication/register';
 //---------------import page--------------------
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+//create router-------------
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,8 @@ const router = createBrowserRouter([
     element: <Register/>,
   }
 ]);
+
+//render
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
       <RouterProvider router={router} />
